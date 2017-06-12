@@ -28,7 +28,6 @@ public class TrieChar<V>
 	
 	private void agregar (String clave , V valor, Nodo<V> nodo)
 	{
-		//caso base, encontramos el final
 		if (clave.equals(""))
 		{
 			nodo.val = valor;
@@ -37,7 +36,6 @@ public class TrieChar<V>
 			Character caracterActual = clave.charAt(0);
 			int indice = alf.indice(caracterActual);
 		
-			//esta comparacion es valida? le mandamos un mail al profe?
 			if (nodo.hijo(indice) != null)
 			{
 				agregar ( clave.substring(1) , valor , nodo.hijo(indice));

@@ -149,6 +149,15 @@ public class TrieChar<V>
 		return ret;
 	}
 	public static void main ( String [] args ){
-	
+		AlfabetoADN alfabeto = new AlfabetoADN();
+		TrieChar diccionario = new TrieChar(alfabeto);
+		diccionario.agregar("ACG", "yair");
+		diccionario.agregar("AGT", "jorge");
+		System.out.println(diccionario.obtener("ACG"));
+		List<String> lista = new ArrayList<String>();
+		lista = diccionario.busqueda("A");
+		for (int i = 0 ; i < lista.size() ; i++ ){
+			System.out.println(lista.get(i));
+		}
 	}
 }

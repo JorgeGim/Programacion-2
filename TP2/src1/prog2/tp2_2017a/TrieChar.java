@@ -3,6 +3,7 @@ package prog2.tp2_2017a;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 
 public class TrieChar<V>
@@ -73,8 +74,13 @@ public class TrieChar<V>
 	}
 	@Override
 	public String toString (){
-		//falta
-		return null;
+		String ret ="";
+		Iterator<String> iterador = this.claves.iterator();
+		while ( iterador.hasNext() ){
+			String clave = iterador.next();
+			ret += clave+": "+obtener(clave)+"\n";
+		}
+		return ret;
 	}
 	
 	public List<V> busqueda(String prefijo) 
@@ -159,5 +165,7 @@ public class TrieChar<V>
 		for (int i = 0 ; i < lista.size() ; i++ ){
 			System.out.println(lista.get(i));
 		}
+		System.out.println("-----------------------");
+		System.out.println(diccionario.toString());
 	}
 }

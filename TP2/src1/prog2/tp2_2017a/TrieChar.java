@@ -1,6 +1,7 @@
 package prog2.tp2_2017a;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 
@@ -69,6 +70,11 @@ public class TrieChar<V>
 		int indice = alf.indice(caracterActual);
 
 		return obtener(clave.substring(1, clave.length()) , nodoActual.hijo(indice));
+	}
+	@Override
+	public String toString (){
+		//falta
+		return null;
 	}
 	
 	public List<V> busqueda(String prefijo) 
@@ -141,5 +147,8 @@ public class TrieChar<V>
 		}
 		
 		return ret;
+	}
+	public static void main ( String [] args ){
+	
 	}
 }

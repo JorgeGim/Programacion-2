@@ -69,7 +69,7 @@ public class TrieChar<V>
 		
 		Character caracterActual = clave.charAt(0);
 		int indice = alf.indice(caracterActual);
-
+		
 		return obtener(clave.substring(1, clave.length()) , nodoActual.hijo(indice));
 	}
 	

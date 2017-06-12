@@ -9,8 +9,8 @@ public class Palabras implements Alfabeto<Character>
 	@Override
 	public int indice(Character elem) 
 	{
-		if (elem >= '0' && elem <= '9')
-			return elem - '0';
+		if (elem >= 'a' && elem <= 'z')
+			return elem - 'a';
 
 		throw new RuntimeException("digito no válido: " + elem);
 	}

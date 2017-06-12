@@ -2,6 +2,7 @@ package prog2.tp2_2017a;
 
 public class AlfabetoADN implements Alfabeto<Character> 
 {
+	private enum Base{A, C, G, T};
 
 	private enum Base{A, C, G, T};
 
@@ -33,7 +34,7 @@ public class AlfabetoADN implements Alfabeto<Character>
 	
 	private Character getCaracter(int i)
 	{
-		if(i < 0 || i > tam())
+
 			throw new IllegalArgumentException("Indice fuera de rango");
 		
 		return Base.values()[i].name().charAt(0);

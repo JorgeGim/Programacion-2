@@ -47,13 +47,16 @@ public class TrieChar<V>
 				Nodo<V> nuevoHijo = new Nodo<V>(alf.tam());
 				nodo.setHijo( indice, nuevoHijo );
 				
-				agregar ( clave.substring(1) , valor , nodo.hijo(indice) );
+				agregar (clave.substring(1) , valor , nodo.hijo(indice));
 			}
 		}
 	}
 
 	public V obtener(String clave) 
 	{
+		if(!claves.contains(clave))
+			return null;
+		
 		return obtener(clave, raiz);
 	}
 	
@@ -67,7 +70,7 @@ public class TrieChar<V>
 		Character caracterActual = clave.charAt(0);
 		int indice = alf.indice(caracterActual);
 
-		return obtener(clave.substring(1) , nodoActual.hijo(indice) );
+		return obtener(clave.substring(1, clave.length()) , nodoActual.hijo(indice));
 	}
 	
 	public List<V> busqueda(String prefijo) 
@@ -82,7 +85,7 @@ public class TrieChar<V>
 		//usar un for significaria que la complejidad es O (k), donde K es la cantidadd de letras del alfabeto
 		//podriamos asumir que en el peor de los casos la cantidad de claves es cuando todos los array estan llenos
 		//entonces O(c) == O (k)
-		
+	
 		if (nodo.val != null)
 		{
 			arreglo.add(nodo.val);
@@ -103,6 +106,9 @@ public class TrieChar<V>
 	public List<V> busqueda(String prefijo, Nodo<V> nodo )
 	{	
 		ArrayList<V> listaClaves = new ArrayList<V>();
+		if ( nodo == null ){
+			return listaClaves;
+		}
 		
 		if (prefijo.equals(""))
 		{

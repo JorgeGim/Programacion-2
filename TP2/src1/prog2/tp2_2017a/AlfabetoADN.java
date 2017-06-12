@@ -4,8 +4,6 @@ public class AlfabetoADN implements Alfabeto<Character>
 {
 	private enum Base{A, C, G, T};
 
-	private enum Base{A, C, G, T};
-
 	@Override
 	public int tam() { return 4; }
 
@@ -34,7 +32,7 @@ public class AlfabetoADN implements Alfabeto<Character>
 	
 	private Character getCaracter(int i)
 	{
-
+		if(i < 0 || i > tam())
 			throw new IllegalArgumentException("Indice fuera de rango");
 		
 		return Base.values()[i].name().charAt(0);

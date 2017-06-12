@@ -72,16 +72,7 @@ public class TrieChar<V>
 
 		return obtener(clave.substring(1, clave.length()) , nodoActual.hijo(indice));
 	}
-	@Override
-	public String toString (){
-		String ret ="";
-		Iterator<String> iterador = this.claves.iterator();
-		while ( iterador.hasNext() ){
-			String clave = iterador.next();
-			ret += clave+": "+obtener(clave)+"\n";
-		}
-		return ret;
-	}
+	
 	
 	public List<V> busqueda(String prefijo) 
 	{
@@ -154,18 +145,18 @@ public class TrieChar<V>
 		
 		return ret;
 	}
-	public static void main ( String [] args ){
-		AlfabetoADN alfabeto = new AlfabetoADN();
-		TrieChar diccionario = new TrieChar(alfabeto);
-		diccionario.agregar("ACG", "yair");
-		diccionario.agregar("AGT", "jorge");
-		System.out.println(diccionario.obtener("ACG"));
-		List<String> lista = new ArrayList<String>();
-		lista = diccionario.busqueda("A");
-		for (int i = 0 ; i < lista.size() ; i++ ){
-			System.out.println(lista.get(i));
+	
+	@Override
+	public String toString ()
+	{
+		String ret = "";
+		Iterator<String> iterador = this.claves.iterator();
+		
+		while ( iterador.hasNext() ){
+			String clave = iterador.next();
+			ret += clave+ ": " +obtener(clave) + "\n";
 		}
-		System.out.println("-----------------------");
-		System.out.println(diccionario.toString());
+		
+		return ret;
 	}
 }
